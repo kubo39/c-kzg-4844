@@ -1,0 +1,12 @@
+# Build artifacts
+lib/
+.dub/
+
+# DUB build outputs
+*.o
+*.a
+*.so
+*.dylib
+
+# Example binary
+example/example

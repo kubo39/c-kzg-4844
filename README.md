@@ -14,6 +14,7 @@ of crucial cryptographic functions.
 | Language | Link                                 |
 | -------- | ------------------------------------ |
 | C#       | [README](bindings/csharp/README.md)  |
+| D        | [README](bindings/d/README.md)       |
 | Elixir   | [README](bindings/elixir/README.md)  |
 | Go       | [README](bindings/go/README.md)      |
 | Java     | [README](bindings/java/README.md)    |

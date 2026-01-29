@@ -1,5 +1,5 @@
 .PHONY: all
-all: c csharp elixir go java nim nodejs python rust
+all: c csharp d elixir go java nim nodejs python rust
 
 .PHONY: c
 c:
@@ -8,6 +8,10 @@ c:
 .PHONY: csharp
 csharp:
 	@$(MAKE) -C bindings/csharp
+
+.PHONY: d
+d:
+	@dub test
 
 .PHONY: elixir
 elixir:

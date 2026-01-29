@@ -27,4 +27,7 @@ build/
 # ccls cache dir
 .ccls-cache/
 
+# dub test bin
+ckzg-test-library
+
 target

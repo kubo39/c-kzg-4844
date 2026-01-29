@@ -1,0 +1,12 @@
+name "ckzg"
+description "D language bindings for c-kzg-4844 (EIP-4844 & EIP-7594)"
+authors "c-kzg-4844 contributors"
+license "Apache-2.0"
+
+sourcePaths "bindings/d/source"
+importPaths "bindings/d/source"
+
+preBuildCommands "make -C $PACKAGE_DIR/bindings/d build-lib --silent" platform="posix"
+
+libs "ckzg"
+lflags "-L$PACKAGE_DIR/bindings/d/lib" platform="posix"

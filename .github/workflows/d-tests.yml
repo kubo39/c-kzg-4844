@@ -1,0 +1,44 @@
+name: D
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+        dc:
+          - ldc-latest
+          - dmd-latest
+        exclude:
+          - os: macos-latest
+            dc: dmd-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      with:
+        submodules: recursive
+
+    - name: Setup D compiler
+      uses: dlang-community/setup-dlang@0a7469b93f791d83f30932c6fd105796c6966e20 # v2.0.0
+      with:
+        compiler: ${{ matrix.dc }}
+
+    - name: Test
+      env:
+        TRUSTED_SETUP_PATH: ${{ github.workspace }}/src/trusted_setup.txt
+      run: dub test
+
+    - name: Run example
+      working-directory: bindings/d/example
+      run: dub run

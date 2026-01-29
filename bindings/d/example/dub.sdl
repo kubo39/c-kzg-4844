@@ -1,0 +1,8 @@
+name "example"
+description "Example usage of c-kzg-4844 D bindings"
+
+dependency "ckzg" path="../../.."
+
+sourceFiles "simple.d"
+targetType "executable"
+targetName "example"
